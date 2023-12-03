@@ -10,5 +10,7 @@ const config = {
         proxyTest: `http://cp.cloudflare.com/generate_204`,
         domesticTest: `http://baidu.com`,
     },
-    port: 3001
+    port: 25501
 }
+
+module.exports = config
