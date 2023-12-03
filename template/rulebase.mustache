@@ -1,0 +1,15 @@
+[General]
+loglevel = warning
+bypass-system = true
+skip-proxy = 127.0.0.1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,100.64.0.0/10,localhost,*.local,e.crashlytics.com,captive.apple.com,::ffff:0:0:0:0/1,::ffff:128:0:0:0/1
+# DNS设置或根据自己网络情况进行相应设置
+bypass-tun = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12
+dns-server = 1.1.1.1, 119.29.29.29, 223.5.5.5, system
+external-controller-access = {{&controllerToken}}@0.0.0.0:6170
+test-timeout = 5
+http-api-web-dashboard = true
+internet-test-url = {{&domesticTest}}
+proxy-test-url = {{&proxyTest}}
+http-api = {{&controllerToken}}@0.0.0.0:6171
+ipv6 = false
+ipv6-vif = auto

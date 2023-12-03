@@ -1,0 +1,16 @@
+version: '3'
+services:
+  subconverter:
+    image: tindy2013/subconverter:0.7.2
+    container_name: subconverter
+    ports:
+      - "25500:25500"
+    volumes:
+      - ./template/rulebase.conf:/base/base/custom_rulebase.conf
+    restart: always
+  proxy: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "25501:25501"

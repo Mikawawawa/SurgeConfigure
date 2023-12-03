@@ -1,0 +1,96 @@
+[custom]
+surge_rule_base=base/custom_rulebase.conf
+
+;设置规则标志位
+; custom_proxy_group=🔰 节点选择`select`[]♻️ 自动选择`[]🎯 全球直连`^(?!.*\[Pro\]).*
+custom_proxy_group=🔰 节点选择`select`[]🐳 Freewhale`🌾 Mzfast[]🎯 全球直连`.*
+custom_proxy_group=🐳 Freewhale`url-test`^(?!.*\[Pro\]).*`{{&proxyTest}}`300
+custom_proxy_group=🌾 Mzfast`url-test`^.*\[Pro\]*`{{&proxyTest}}`300
+
+custom_proxy_group=🇸🇬 Whale SG`url-test`^AA-V2ray-SG.*$`{{&proxyTest}}`600
+custom_proxy_group=🇭🇰 Whale HK`url-test`^AA-V2ray-HK.*$`{{&proxyTest}}`600
+custom_proxy_group=🇯🇵 Whale JP`url-test`^AA-V2ray-JP.*$`{{&proxyTest}}`600
+
+custom_proxy_group=🇸🇬 Mzfast SG`url-test`^.*\[Pro\].*SG.*`{{&proxyTest}}`600
+custom_proxy_group=🇭🇰 Mzfast HK`url-test`^.*\[Pro\].*HK.*`{{&proxyTest}}`600
+custom_proxy_group=🇯🇵 MZfast JP`url-test`^.*\[Pro\].*JP.*`{{&proxyTest}}`600
+
+custom_proxy_group=🚩 All TW`url-test`TW`{{&proxyTest}}`600
+custom_proxy_group=🇭🇰 All US`url-test`US`{{&proxyTest}}`600
+
+; custom_proxy_group=🚩 TW最优`url-test`.*TW*`{{&proxyTest}}`600
+custom_proxy_group=🌍 国外媒体`select`[]🔰 节点选择`[]🎯 全球直连`^(?!.*\[Pro\]).*
+custom_proxy_group=🌏 国内媒体`select`[]🎯 全球直连`[]🔰 节点选择
+custom_proxy_group=🌏 港台媒体`select`[]🎯 全球直连`[]🔰 节点选择`[]🇭🇰 Whale HK`🇭🇰 Mzfast HK
+custom_proxy_group=⚙️ OpenAI`select`[]🔰 节点选择,🇸🇬 Whale SG,🇸🇬 Mzfast SG,`
+; custom_proxy_group=🎮 Xbox`select`[]🎯 全球直连`[]🔰 节点选择`[]🇭🇰 Whale HK`🇭🇰 Whale HK
+custom_proxy_group=🎮 Nintendo`select`[]🎯 全球直连`[]🔰 节点选择`[]🇭🇰 Whale HK`[]🇭🇰 Mzfast HK`[]🚩 All TW`[]🇭🇰 All US
+custom_proxy_group=🎮 MapleStory`select`[]🚩 All TW`TW
+; custom_proxy_group=🎮 MapleStory`select`[]🎯 全球直连`.*
+custom_proxy_group=Ⓜ️ 微软服务`select`[]🎯 全球直连`[]🔰 节点选择`^(?!.*\[Pro\]).*
+
+custom_proxy_group=🍎 苹果服务`select`[]🔰 节点选择`[]🎯 全球直连
+custom_proxy_group=🎯 全球直连`select`[]DIRECT
+
+custom_proxy_group=🐟 漏网之鱼`select`[]🎯 全球直连`[]🔰 节点选择`^(?!.*\[Pro\]).*
+custom_proxy_group=🔰 应用净化`select`[]REJECT`[]DIRECT
+custom_proxy_group=🆎 AdBlock`select`[]REJECT`[]DIRECT
+
+;设置规则标志位
+
+;设置分组标志位
+ruleset=⚙️ OpenAI,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list
+
+ruleset=🎯 全球直连,rules/LocalAreaNetwork.list
+ruleset=🎯 全球直连,rules/DivineEngine/Surge/Ruleset/China.list
+ruleset=🎯 全球直连,rules/NobyDa/Surge/Download.list
+ruleset=🎯 全球直连,rules/DivineEngine/Surge/Ruleset/Unbreak.list
+
+ruleset=🎯 全球直连,{{&domain}}/static/rules/zoom.list
+ruleset=🎯 全球直连,{{&fallbackDomain}}/static/rules/zoom.list
+
+ruleset=🌏 国内媒体,rules/lhie1/Surge/Surge 3/Provider/Media/Bilibili.list
+ruleset=🌏 国内媒体,rules/lhie1/Surge/Surge 3/Provider/Media/iQiyi.list
+ruleset=🌏 国内媒体,rules/lhie1/Surge/Surge 3/Provider/Media/Letv.list
+ruleset=🌏 国内媒体,rules/lhie1/Surge/Surge 3/Provider/Media/MOO.listiujyrej
+ruleset=🌏 国内媒体,rules/lhie1/Surge/Surge 3/Provider/Media/Tencent Video.list
+ruleset=🌏 国内媒体,rules/lhie1/Surge/Surge 3/Provider/Media/Youku.list
+ruleset=🌏 国内媒体,rules/lhie1/Surge/Surge 3/Provider/AsianTV.list
+ruleset=🌏 国内媒体,rules/lhie1/Surge/Surge3/Domestic.list
+
+ruleset=🌏 港台媒体,https://raw.githubusercontent.com/DivineEngine/Profiles/master/Surge/Ruleset/StreamingMedia/StreamingSE.list
+ruleset=🌏 港台媒体,rules/ACL4SSR/Clash/Ruleset/Porn.list
+
+ruleset=🎮 Nintendo,rules/DivineEngine/Surge/Ruleset/Extra/Game/Nintendo.list
+
+ruleset=🎮 MapleStory,{{&domain}}/static/rules/beanfun.list
+ruleset=🎮 MapleStory,{{&fallbackDomain}}/static/rules/beanfun.list
+
+ruleset=🌍 国外媒体,rules/DivineEngine/Surge/Ruleset/StreamingMedia/Streaming.list
+
+ruleset=🔰 节点选择,rules/DivineEngine/Surge/Ruleset/Global.list
+
+ruleset=🔰 节点选择,{{&domain}}/static/rules/proxy.list
+ruleset=🔰 节点选择,{{&fallbackDomain}}/static/rules/proxy.list
+
+ruleset=🍎 苹果服务,rules/DivineEngine/Surge/Ruleset/Extra/Apple/Apple.list
+ruleset=Ⓜ️ 微软服务,rules/MSServices.list
+ruleset=Ⓜ️ 微软服务,rules/ACL4SSR/Clash/Ruleset/Microsoft.list
+
+ruleset=🆎 AdBlock,rules/ACL4SSR/Clash/Ruleset/BanEasyList.list
+ruleset=🆎 AdBlock,rules/ACL4SSR/Clash/Ruleset/BanEasyListChina.list
+ruleset=🔰 应用净化,rules/ACL4SSR/Clash/Ruleset/BanProgramAD.list
+
+ruleset=🎯 全球直连,[]GEOIP,CN
+ruleset=🐟 漏网之鱼,[]FINAL
+
+enable_rule_generator=true
+overwrite_original_rules=true
+
+; [node_pref]
+;udp_flag=false
+tcp_fast_open_flag=true
+skip_cert_verify_flag=true
+
+rename_node=!!script:function rename(node) {return node.Hostname}
+; include_remarks=*V2ray*
