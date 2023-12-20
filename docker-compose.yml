@@ -14,3 +14,4 @@ services:
       dockerfile: Dockerfile
     ports:
       - "25501:25501"
+    restart: always
